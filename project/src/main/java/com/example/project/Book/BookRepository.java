@@ -1,4 +1,4 @@
-package com.example.project;
+package com.example.project.Book;
 
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;
