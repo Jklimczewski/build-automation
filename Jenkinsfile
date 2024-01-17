@@ -10,7 +10,9 @@ pipeline {
     stages {
         stage ('Build') {
             steps {
-                sh 'mvn clean package'
+                dir('project') {
+                    sh 'mvn clean package'
+                }
             }
         }
 
