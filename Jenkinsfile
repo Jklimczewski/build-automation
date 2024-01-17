@@ -21,7 +21,7 @@ pipeline {
                 }
                 steps {
                     script {
-                        docker.withRegistry('https://registry.hub.docker.com', 'docker_credential') {
+                        docker.withRegistry('https://registry.hub.docker.com', 'docker_cred') {
                             docker.image("xkuklix/proj-aut:${TAG}").push()
                             docker.image("xkuklix/proj-aut:${TAG}").push("latest")
                         }
