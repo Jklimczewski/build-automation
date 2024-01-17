@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mybackend-nodeport
+spec:
+  type: NodePort
+  selector:
+    type: backend
+    app: myapp
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 32000

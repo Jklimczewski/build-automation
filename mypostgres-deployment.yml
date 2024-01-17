@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deplo
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:15.4-alpine
+        resources:
+          limits:
+            memory: "2Gi"
+            cpu: "2000m"
+        volumeMounts:
+          - name: postgresvolume
+            mountPath: /var/lib/postgresql/data
+            subPath: postgres
+        env:
+          - name: POSTGRES_DB
+            valueFrom:
+              configMapKeyRef:
+                name: mypostgres-configmap
+                key: PGDATABASE
+          - name: POSTGRES_USER
+            valueFrom:
+              configMapKeyRef:
+                name: mypostgres-configmap
+                key: PGUSER
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: mypostgres-configmap
+                key: PGPASSWORD
+        ports:
+          - containerPort: 5432
+      volumes:
+        - name: postgresvolume
+          persistentVolumeClaim:
+            claimName: mypostgres-pvc
+  replicas: 1
