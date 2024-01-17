@@ -1,10 +1,10 @@
 FROM maven:3.8.4-openjdk-17-slim AS builder
 WORKDIR /app
 
-COPY mvnw .
-COPY .mvn .mvn
-COPY pom.xml .
-COPY src src
+COPY project/mvnw .
+COPY project/.mvn .mvn
+COPY project/pom.xml .
+COPY project/src src
 
 RUN mvn clean package -Dmaven.test.skip
 
