@@ -8,14 +8,6 @@ pipeline {
         TAG = "${DATE}.${BUILD_NUMBER}"
     }
     stages {
-        stage ('Build') {
-            steps {
-                dir('project') {
-                    sh 'mvn clean package'
-                }
-            }
-        }
-
         stage('Docker Build') {
             steps {
                 script {
