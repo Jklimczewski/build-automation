@@ -1,6 +1,11 @@
 FROM maven:3.8.4-openjdk-17-slim AS builder
 WORKDIR /app
-COPY . .
+
+COPY mvnw .
+COPY .mvn .mvn
+COPY pom.xml .
+COPY src src
+
 RUN mvn clean package -Dmaven.test.skip
 
 FROM eclipse-temurin:17-alpine
