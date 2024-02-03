@@ -1,5 +1,5 @@
 # CS studies course "Build automation in IT projects"
-## 📖 The project aimed to create a simple CRUD REST API, that should be tested with unit and integration tests. Later, the entire applcation is dockerized and deployed with kubernetes. At the very end we go for CI/CD, using Jenkins, the app is tested, built and an image is pushed to docker hub.
+## 📖 The project aimed to create a simple CRUD REST API, that should be tested with unit and integration tests. Later, the entire applcation was dockerized and deployed with kubernetes. At the very end I went for CI/CD. Using Jenkins the app is tested and built, an image is pushed to docker hub.
 
 ### 📌 Zad 1. Aplikacja
 
